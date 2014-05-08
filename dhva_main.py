@@ -5,7 +5,7 @@ Created on Apr 13, 2011
 '''
 
 import return_DataToPlot as DP
-import analysis_sub as ass
+import analysis_sub as asub
 import netCDF4 as netCDF4
 #from pylab import * 
 import convert_CDF as cnv
@@ -129,23 +129,23 @@ e_vars['write_fft'] = 0
 
 if Analyze_A:
     figure_counter += 1
-    a_analyzed = ass.analysis_sub(plotvariables,figure_counter,**a_vars)
+    a_analyzed = asub.analysis_sub(plotvariables,figure_counter,**a_vars)
     pr.print_results(a_analyzed, a_vars)
     #print('A is done')
 
 if Analyze_B:
     figure_counter += 1
-    b_analyzed = ass.analysis_sub(plotvariables,figure_counter,**b_vars)
+    b_analyzed = asub.analysis_sub(plotvariables,figure_counter,**b_vars)
     pr.print_results(b_analyzed, b_vars)
  
 if Analyze_C:
     figure_counter += 1
-    c_analyzed = ass.analysis_sub(plotvariables,figure_counter,**c_vars)
+    c_analyzed = asub.analysis_sub(plotvariables,figure_counter,**c_vars)
     pr.print_results(c_analyzed, c_vars)
 
 if Analyze_Nolock:
     figure_counter += 1
-    e_analyzed = ass.analysis_sub(plotvariables,figure_counter,**e_vars)
+    e_analyzed = asub.analysis_sub(plotvariables,figure_counter,**e_vars)
     pr.print_results(e_analyzed, e_vars)
 
 nc.close
