@@ -4,13 +4,13 @@ This is a python based analyzer for de Haas-van Alphen quantum oscillation measu
 python scripts. It is certainly a work in progress and is based upon Patrick Rourke's LabView dHvA analyzer. 
 
 ##Requirements
--Python 2.7 (not tested with Python3)
--iPython
--Pywavelets package
--Numpy
--Scipy
--Matplotlib
--netCDF4/HDF5
+* Python 2.7 (not tested with Python3)
+* iPython
+* Pywavelets package
+* Numpy
+* Scipy
+* Matplotlib
+* netCDF4/HDF5
 
 ##Usage
 At present, the end user need only modify the variables found in dhva_main.py. These allow the user to select the data to be analyzed (Channels A,B,C,E,F), the harmonic to analyze on (1,2), and allows for a variety of options including background signal subtraction, smoothing, despiking, windowing, convert netCDF to dat, write results to file, etc.
