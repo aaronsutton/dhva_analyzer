@@ -1,0 +1,142 @@
+'''
+Created on Apr 13, 2011
+
+@author: asutton
+'''
+
+import return_DataToPlot as DP
+import analysis_sub as ass
+import netCDF4 as netCDF4
+#from pylab import * 
+import convert_CDF as cnv
+import os
+import numpy as np
+
+#Check OS
+check_os = os.name
+
+#Select file to work on
+#*NIX Path format
+if (check_os == 'posix'):
+    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/June_2013'
+    outpath = path
+    progpath = '/home/asutton/Dropbox/Workspace/dHvA_Analyzer/src/'
+
+#Windows path format
+elif (check_os == 'nt'):
+    path = 'C:/Users/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/February_2012'
+    outpath = 'C:/Users/asutton/Dropbox/Temp'
+
+name = '2013_06_25_03_YbRh2Si2_000.nc'
+
+#Convert all files in the directory from netCDF to .dat
+convert = 0
+if convert:
+    cnv.convert_CDF(path)
+
+#initialize figure counter
+figure_counter = 0
+
+#Get variables to plot
+UnSortCurrentH,CurrentT,A1X,A1Y,A2X,A2Y,B1X,B1Y,B2X,B2Y,C1X,C1Y,C2X,C2Y,E,F = DP.return_DataToPlot(path,name)
+os.chdir(progpath)
+
+#Analyze?
+Analyze_A = 0
+#Which harmonic?
+A_Harmonic = 2
+#Range?
+a_min_field,a_max_field = 14.1,16
+#Despike the data?
+despike_a = 1
+#Which mother wavelet?
+mother_a = 'coif2'
+#How many levels of decomposition?
+wavelet_lvls_a = 2
+#Window?
+window_a = 0
+#Which kind of window?
+windowtype_a = 'hanning'
+#Write the data to a file?
+write_a = 1
+
+
+#Analyze B?
+Analyze_B = 1
+B_Harmonic = 2
+b_min_field,b_max_field = 10.1,16
+despike_b = 1
+mother_b = 'coif2'
+wavelet_lvls_b = 2
+window_b = 0
+windowtype_b = 'hanning'
+write_b = 1
+
+#Analyze C?
+Analyze_C = 0
+C_Harmonic = 1
+c_min_field,c_max_field = 10.1,15
+despike_c = 1
+mother_c = 'coif2'
+wavelet_lvls_c = 2
+window_c = 1
+windowtype_c = 'hanning'
+write_c = 0
+
+#Analyze Raw Channels E & F?
+Analyze_Nolock = 0
+e_min_field,e_max_field = 12,14
+despike_e = 1
+mother_e = 'coif2'
+wavelet_lvls_e = 2
+window_e = 1
+windowtype_e = 'hanning'
+write_e = 0
+
+if (Analyze_A == 1):
+    if (A_Harmonic == 1):
+        x_in = A1X
+        y_in = A1Y
+    elif (A_Harmonic == 2):
+        x_in = A2X
+        y_in = A2Y
+    
+    sample = 'A' 
+    a_dHvApeaks, figure_counter = ass.analysis_sub(sample,UnSortCurrentH,x_in,y_in,a_min_field,a_max_field,despike_a, mother_a, wavelet_lvls_a, window_a, windowtype_a, figure_counter, path, name, write_a)
+    print(a_dHvApeaks)
+    #print('A is done')
+
+if (Analyze_B == 1):
+    if (B_Harmonic == 1):
+        x_in = B1X
+        y_in = B1Y
+    elif (B_Harmonic == 2):
+        x_in = B2X
+        y_in = B2Y
+    
+    sample = 'B' 
+    b_dHvApeaks, figure_counter = ass.analysis_sub(sample,UnSortCurrentH,x_in,y_in,b_min_field,b_max_field,despike_b, mother_b, wavelet_lvls_b, window_b, windowtype_b, figure_counter, path, name, write_b)
+    print(b_dHvApeaks)
+    
+if (Analyze_C == 1):
+    if (C_Harmonic == 1):
+        x_in = C1X
+        y_in = C1Y
+    elif (C_Harmonic == 2):
+        x_in = C2X
+        y_in = C2Y
+     
+    sample = 'C' 
+    c_dHvApeaks, figure_counter = ass.analysis_sub(sample,UnSortCurrentH,x_in,y_in,b_min_field,b_max_field,despike_c, mother_c, wavelet_lvls_c, window_c, windowtype_c, figure_counter, path, name, write_c)
+    print(a_dHvApeaks)
+    
+if (Analyze_Nolock == 1):
+    x_in = E
+    y_in = F
+    sample = 'NoLock' 
+    e_dHvApeaks, figure_counter = ass.analysis_sub(sample,UnSortCurrentH,x_in,y_in,e_min_field,e_max_field,despike_e, mother_e, wavelet_lvls_e, window_e, windowtype_e, figure_counter, path, name, write_e)
+    print(e_dHvApeaks)
+
+os.chdir(progpath)
+#print('all done')    
+#show()
