@@ -3,3 +3,7 @@
 *.dat
 *.tmproj
 *.zip
+*.cor
+*.flt
+*.lpf
+\#*.*
