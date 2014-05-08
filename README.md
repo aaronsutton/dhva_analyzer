@@ -1,7 +1,8 @@
-#Aaron's de Haas-van Alpen data analyzer
+#Aaron's dHvA data analyzer
 
 This is a python based analyzer for de Haas-van Alphen quantum oscillation measurements written as a selection of
-python scripts. It is certainly a work in progress and is based upon Patrick Rourke's LabView dHvA analyzer. 
+python scripts. It is certainly a work in progress and is based upon Patrick Rourke's LabView dHvA analyzer. It is
+designed to work specifically with the datasets created in our lab. 
 
 ##Requirements
 * Python 2.7 (not tested with Python3)
