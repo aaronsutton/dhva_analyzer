@@ -12,6 +12,9 @@ import convert_CDF as cnv
 import os
 import numpy as np
 import printresults as pr
+from yesno import query_yes_no
+import matplotlib.pyplot as plt
+
 #Check OS
 check_os = os.name
 
@@ -147,6 +150,11 @@ if Analyze_Nolock:
     figure_counter += 1
     e_analyzed = asub.analysis_sub(plotvariables,figure_counter,**e_vars)
     pr.print_results(e_analyzed, e_vars)
+
+keep_plots = query_yes_no("Do you wish to keep the plot windows open?")
+
+if keep_plots == 'no':
+    plt.close('all')
 
 nc.close
 os.chdir(progpath)
