@@ -31,7 +31,7 @@ elif (check_os == 'nt'):
     outpath = path
     progpath = 'E:\Google Drive\Data Sync\Dropbox\workspace\dhva_edit\src'
 
-name = '2013_07_02_02_YbRh2Si2_000.nc'
+name = '2013_07_01_06_YbRh2Si2_000.nc'
 
 # Convert all files in the directory from netCDF to .dat
 convert = 0
@@ -76,7 +76,7 @@ a_vars['write_fft'] = 0
 
 # Analyze B?
 b_vars = dict()
-Analyze_B = 1
+Analyze_B = 0
 b_vars['Sample'] = 'B'
 b_vars['Harmonic'] = '2'
 b_vars['min_field'] = 14.1
