@@ -21,7 +21,7 @@ check_os = os.name
 # Select file to work on
 # *NIX Path format
 if (check_os == 'posix'):
-    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/February_2012/'
+    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/Summer2014/'
     outpath = path
     progpath = '/home/asutton/Dropbox/workspace/dhva_edit/src/'
 
@@ -76,7 +76,7 @@ a_vars['write_fft'] = 0
 
 # Analyze B?
 b_vars = dict()
-Analyze_B = 1
+Analyze_B = 0
 b_vars['Sample'] = 'B'
 b_vars['Harmonic'] = '1'
 b_vars['min_field'] = 13.1

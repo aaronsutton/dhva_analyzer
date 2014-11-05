@@ -109,7 +109,7 @@ def analysis_sub(name, path, plotvariables, figure_counter_sub, Sample, Harmonic
             despiked_dataY = wf(despiked_dataY, wavelet_lvls, mother)
         # despiked_data = wf(despiked_data,1, 'sym2')
         else:
-            despiked_data = fitdata[0]
+            despiked_dataY = fitdataY[0]
 
     # Run field inverter/interpolator
         interp_dataY, rebinHY, invDeltaHY = i_f.inv_field(despiked_dataY, CurrentHY)
