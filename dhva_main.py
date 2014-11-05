@@ -31,7 +31,7 @@ elif (check_os == 'nt'):
     outpath = path
     progpath = 'E:\Google Drive\Data Sync\Dropbox\workspace\dhva_edit\src'
 
-name = '2012_02_27_03_YbRh2Si2_000.nc'
+name = '2014_09_06_01_YbRh2Si2_000.nc'
 
 # Convert all files in the directory from netCDF to .dat
 convert = 0
