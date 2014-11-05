@@ -156,16 +156,16 @@ def analysis_sub(name, path, plotvariables, figure_counter_sub, Sample, Harmonic
     # Plot original data and polynomial fit through it
     sig_fit = sig_Plot.add_subplot(222)
     sig_fit.set_title('Background Fit', fontsize=12)
-    sig_fit.plot(CurrentH, Signal, 'g')
-    sig_fit.plot(CurrentH, fitdata[1], 'r')
-    sig_fit.plot(CurrentH, fitdata[0], 'y')
+    sig_fit.plot(CurrentHY, SignalY, 'g')
+    sig_fit.plot(CurrentHY, fitdataY[1], 'r')
+    sig_fit.plot(CurrentHY, fitdataY[0], 'y')
     sig_fit.set_xlabel('Field (' + x_units + ')', fontsize=12)
     sig_fit.set_ylabel('Signal (' + y_units + ')', fontsize=12)
 
     # Plot Windowed data
     sig_windowed = sig_Plot.add_subplot(223)
     sig_windowed.set_title('Windowed Data', fontsize=12)
-    sig_windowed.plot(rebinH, windowed_data)
+    sig_windowed.plot(rebinHY, windowed_dataY)
     # sig_windowed.plot(rebinH,window_to_use)
     sig_windowed.set_xlabel('Field (' + x_units + ')', fontsize=12)
     sig_windowed.set_ylabel('Signal (' + y_units + ')', fontsize=12)

@@ -21,7 +21,7 @@ check_os = os.name
 # Select file to work on
 # *NIX Path format
 if (check_os == 'posix'):
-    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/June_2013/'
+    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/February_2012/'
     outpath = path
     progpath = '/home/asutton/Dropbox/workspace/dhva_edit/src/'
 
@@ -31,7 +31,7 @@ elif (check_os == 'nt'):
     outpath = path
     progpath = 'E:\Google Drive\Data Sync\Dropbox\workspace\dhva_edit\src'
 
-name = '2013_07_01_06_YbRh2Si2_000.nc'
+name = '2012_02_27_03_YbRh2Si2_000.nc'
 
 # Convert all files in the directory from netCDF to .dat
 convert = 0
@@ -50,10 +50,10 @@ a_vars = dict()
 Analyze_A = 1
 a_vars['Sample'] = 'A'
 # Which harmonic?
-a_vars['Harmonic'] = '2'
+a_vars['Harmonic'] = '1'
 # Range?
-a_vars['min_field'] = 14.1
-a_vars['max_field'] = 16
+a_vars['min_field'] = 13.1
+a_vars['max_field'] = 15
 # Analyze the lock-in Y data?
 a_vars['Y'] = 1
 # Despike the data?
@@ -76,12 +76,12 @@ a_vars['write_fft'] = 0
 
 # Analyze B?
 b_vars = dict()
-Analyze_B = 0
+Analyze_B = 1
 b_vars['Sample'] = 'B'
-b_vars['Harmonic'] = '2'
-b_vars['min_field'] = 14.1
-b_vars['max_field'] = 16
-b_vars['Y'] = 0
+b_vars['Harmonic'] = '1'
+b_vars['min_field'] = 13.1
+b_vars['max_field'] = 15
+b_vars['Y'] = 1
 b_vars['despike'] = 1
 b_vars['mother'] = 'coif2'
 b_vars['wavelet_lvls'] = 2
@@ -89,7 +89,7 @@ b_vars['smooth'] = 0
 b_vars['smoothtype'] = 'hamming'
 b_vars['window'] = 0
 b_vars['windowtype'] = 'hanning'
-b_vars['write'] = 0
+b_vars['write'] = 1
 b_vars['write_fft'] = 0
 
 # Analyze C?
@@ -99,7 +99,7 @@ c_vars['Sample'] = 'C'
 c_vars['Harmonic'] = '2'
 c_vars['min_field'] = 14.1
 c_vars['max_field'] = 16
-c_vars['Y'] = 0
+c_vars['Y'] = 1
 c_vars['despike'] = 1
 c_vars['mother'] = 'coif2'
 c_vars['wavelet_lvls'] = 2

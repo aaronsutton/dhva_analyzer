@@ -33,25 +33,25 @@ def peakfind(freq,FFT,fig):
     #figure(2)
     #plot(xseldata,yseldata,'y')
     #draw()
-    
+
     #Playing with gaussian fit
                 gauss_fit = lambda p, x: p[0]*(1/sqrt(2*pi*(p[2]**2)))*exp(-(x-p[1])**2/(2*p[2]**2))
                 e_gauss_fit = lambda p, x, y: (gauss_fit(p,x) -y)
                 x_pos = double(xseldata)
-                y_power = double(yseldata) 
-    
+                y_power = double(yseldata)
+
                 v0 = [guess_a,mean(x_pos),1.0] #inital guesses for Gaussian Fit. $just do it around the peak
                 out = leastsq(e_gauss_fit, v0[:], args=(x_pos, y_power), maxfev=100000, full_output=1) #Gauss Fit
                 v = out[0] #fit parammeters out
                 covar = out[1] #covariance matrix output
-    
+
                 xxx = arange(min(x_pos),max(x_pos),x_pos[1]-x_pos[0])
                 ccc = gauss_fit(v,xxx) # this will only work if the units are pixel and not wavelength
-    
+
                 fig.plot(xxx,ccc,'b--')
-                plt.axvline(x=xxx[where(ccc == max(ccc))[0]][0],color='r')
+                plt.axvline(x=xxx[where(ccc == max(ccc))[0]][0],color='k')
                 plt.draw()
-        
+
     #fig = figure(3) #make a plot
     #ax1 = fig.add_subplot(111)
     #ax1.plot(x_pos,y_power,'gs') #spectrum
@@ -59,7 +59,7 @@ def peakfind(freq,FFT,fig):
     #ax1.axvline(x=xxx[where(ccc == max(ccc))[0]][0],color='r') #max position in data
     #setp(gca(), ylabel="power", xlabel="pixel position")
     #savefig("plotfitting.png")
-    
+
             #print "p[0], a: ", v[0]
             #print "peak height: ", max(ccc)
             #print "p[1], mu: ", v[1]
