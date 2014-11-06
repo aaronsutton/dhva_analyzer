@@ -21,7 +21,7 @@ check_os = os.name
 # Select file to work on
 # *NIX Path format
 if (check_os == 'posix'):
-    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/Summer2014/'
+    path = '/home/asutton/Dropbox/School/Current/YbRh2Si2/Raw_Data/February_2012/'
     outpath = path
     progpath = '/home/asutton/Dropbox/workspace/dhva_edit/src/'
 
@@ -31,7 +31,7 @@ elif (check_os == 'nt'):
     outpath = path
     progpath = 'E:\Google Drive\Data Sync\Dropbox\workspace\dhva_edit\src'
 
-name = '2014_09_06_01_YbRh2Si2_000.nc'
+name = '2012_02_22_02_YbRh2Si2_000.nc'
 
 # Convert all files in the directory from netCDF to .dat
 convert = 0
@@ -52,8 +52,8 @@ a_vars['Sample'] = 'A'
 # Which harmonic?
 a_vars['Harmonic'] = '1'
 # Range?
-a_vars['min_field'] = 13.1
-a_vars['max_field'] = 15
+a_vars['min_field'] = 14
+a_vars['max_field'] = 16
 # Analyze the lock-in Y data?
 a_vars['Y'] = 1
 # Despike the data?
@@ -63,7 +63,7 @@ a_vars['mother'] = 'coif2'
 # How many levels of decomposition?
 a_vars['wavelet_lvls'] = 2
 # Smooth?
-a_vars['smooth'] = 0
+a_vars['smoothdat'] = 0
 # Smoothing type
 a_vars['smoothtype'] = 'hamming'
 # Window?
@@ -79,17 +79,17 @@ b_vars = dict()
 Analyze_B = 0
 b_vars['Sample'] = 'B'
 b_vars['Harmonic'] = '1'
-b_vars['min_field'] = 13.1
-b_vars['max_field'] = 15
+b_vars['min_field'] = 14
+b_vars['max_field'] = 16
 b_vars['Y'] = 1
-b_vars['despike'] = 1
+b_vars['despike'] = 0
 b_vars['mother'] = 'coif2'
 b_vars['wavelet_lvls'] = 2
-b_vars['smooth'] = 0
+b_vars['smoothdat'] = 0
 b_vars['smoothtype'] = 'hamming'
-b_vars['window'] = 0
-b_vars['windowtype'] = 'hanning'
-b_vars['write'] = 1
+b_vars['window'] = 1
+b_vars['windowtype'] = 'hamming'
+b_vars['write'] = 0
 b_vars['write_fft'] = 0
 
 # Analyze C?
@@ -103,7 +103,7 @@ c_vars['Y'] = 1
 c_vars['despike'] = 1
 c_vars['mother'] = 'coif2'
 c_vars['wavelet_lvls'] = 2
-c_vars['smooth'] = 0
+c_vars['smoothdat'] = 0
 c_vars['smoothtype'] = 'hamming'
 c_vars['window'] = 0
 c_vars['windowtype'] = 'hanning'
@@ -121,7 +121,7 @@ e_vars['Y'] = 0
 e_vars['despike'] = 1
 e_vars['mother'] = 'coif2'
 e_vars['wavelet_lvls'] = 2
-e_vars['smooth'] = 0
+e_vars['smoothdat'] = 0
 e_vars['smoothtype'] = 'hamming'
 e_vars['window'] = 0
 e_vars['windowtype'] = 'hanning'

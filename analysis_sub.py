@@ -9,7 +9,7 @@ Created on Feb 24, 2012
 from scipy import signal
 import numpy as np
 import fit_bg
-# import smooth
+import smooth as sm
 import sortarray as sa
 # import convert_CDF as cnv
 # import return_DataToPlot as DP
@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 # from matplotlib import pyplot
 # from matplotlib import figure
 
-def analysis_sub(name, path, plotvariables, figure_counter_sub, Sample, Harmonic, min_field, max_field, Y, despike, mother, wavelet_lvls, smooth, smoothtype, window, windowtype, write, write_fft):
+def analysis_sub(name, path, plotvariables, figure_counter_sub, Sample, Harmonic, min_field, max_field, Y, despike, mother, wavelet_lvls, smoothdat, smoothtype, window, windowtype, write, write_fft):
 
     # figure_counter_sub = figure_counter + 1
     UnSortCurrentH_in = plotvariables['B']
@@ -71,8 +71,8 @@ def analysis_sub(name, path, plotvariables, figure_counter_sub, Sample, Harmonic
     newH = 1/rebinH
     #window the data
 
-    if smooth:
-        smoothed_data = smooth.smooth(interp_data, 30, smoothtype)
+    if smoothdat:
+        smoothed_data = sm.smooth(interp_data, 30, smoothtype)
     else:
         smoothed_data = interp_data
 
@@ -116,8 +116,8 @@ def analysis_sub(name, path, plotvariables, figure_counter_sub, Sample, Harmonic
         newHY = 1/rebinHY
     # window the data
 
-        if smooth:
-            smoothed_dataY = smooth.smooth(interp_dataY, 30, smoothtype)
+        if smoothdat:
+            smoothed_dataY = sm.smooth(interp_dataY, 30, smoothtype)
         else:
             smoothed_dataY = interp_dataY
 

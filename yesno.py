@@ -1,9 +1,9 @@
 #From code.activestate.com/recipes/577058/
 import sys
 
-def query_yes_no(question, default="yes"):
+def query_yes_no(question, default="no"):
     """Ask a yes/no question via raw_input() and return their answer.
-    
+
     "question" is a string that is presented to the user.
     "default" is the presumed answer if the user just hits <Enter>.
         It must be "yes" (the default), "no" or None (meaning
